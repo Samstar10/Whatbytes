@@ -1,4 +1,4 @@
-import React, { useContext } from "react";
+import React, { useContext, useEffect, useState } from "react";
 import { Doughnut } from "react-chartjs-2";
 import { Chart as ChartJS, ArcElement, Tooltip, Legend } from 'chart.js';
 import { ScoreContext } from "../context/score-context";
@@ -7,6 +7,21 @@ ChartJS.register(ArcElement, Tooltip, Legend);
 
 const QuestionAnalysis = () => {
 	const { score } = useContext(ScoreContext);
+	const [cutoutSize, setCutoutSize] = useState(150);
+
+	useEffect(() => {
+    // Function to update cutout based on screen size
+    const updateCutout = () => {
+      const isSmallScreen = window.matchMedia("(max-width: 768px)").matches;
+      setCutoutSize(isSmallScreen ? 50 : 50);
+    };
+
+    // Add listener for resize events
+    updateCutout();
+    window.addEventListener("resize", updateCutout);
+
+    return () => window.removeEventListener("resize", updateCutout);
+  }, []);
 
 	const data = {
 		labels: ['Correct', 'Incorrect'],
@@ -24,7 +39,8 @@ const QuestionAnalysis = () => {
 
 	const options = {
 		responsive: true,
-		cutout: 150,
+		maintainAspectRatio: false,
+		cutout: 50,
 		plugins: {
 			legend: {
 				display: false,
@@ -63,7 +79,7 @@ const QuestionAnalysis = () => {
 				<span className="text-blue-800 font-bold">10/15</span>
 			</div>
 
-			<p className="text-gray-600"><span className="font-semibold">You scored 10 question correct out of 15.</span> However it still needs some improvements</p>
+			<p className="text-gray-600 text-sm md:text-base"><span className="font-semibold">You scored 10 question correct out of 15.</span> However it still needs some improvements</p>
 
 			<div>
 				<Doughnut data={data} options={options} plugins={[centerTextPlugin]} />

@@ -13,16 +13,16 @@ const Header = ({ toggleSidebar }) => {
           >
             ☰
           </button>
-          <img src={logo} alt="WhatBytes Company logo" className="h-14" />
+          <img src={logo} alt="WhatBytes Company logo" className="h-8 md:h-14" />
         </div>
 
 				<div className='flex items-center gap-1.5 border-2 p-2 border-gray-300 rounded-xl'>
 					<img 
 						src={headshot} 
 						alt="Profile picture" 
-						className='w-10 h-10 rounded-full'
+						className='hidden md:block md:w-10 md:h-10 rounded-full'
 					/>
-					<span className='font-semibold text-xl'>Samuel Muli</span>
+					<span className='font-semibold text-xs md:text-xl'>Samuel Muli</span>
 				</div>
 			</header>
 		</div>

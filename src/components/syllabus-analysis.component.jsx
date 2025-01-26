@@ -5,7 +5,7 @@ const SyllabusAnalysis = () => {
   return (
 		<div className="border border-gray-300 py-8 px-6 rounded-lg flex flex-col gap-10">
 			<h1 className="font-bold">Syllabus Wise Analysis</h1>
-			<div className="flex flex-col gap-10 text-gray-500">
+			<div className="flex flex-col gap-10 text-gray-500 text-sm md:text-base">
 				<div className="flex flex-col gap-4">
 					<h3>HTML Tools, Forms, History</h3>
 					<ProgressBar progress={80} color="bg-blue-500" labelColor="text-blue-500" remainderColor="bg-blue-100" />

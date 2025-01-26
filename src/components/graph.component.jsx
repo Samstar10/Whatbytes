@@ -93,14 +93,14 @@ const ComparisonChart = () => {
       <div className="flex justify-between items-center">
         <div className="flex flex-col gap-4 w-3/4">
           <h1 className="font-bold">Comparison Graph</h1>
-          <p className="text-gray-600">
+          <p className="text-gray-600 text-sm md:text-base">
             <span className="font-semibold">You scored 30% percentile.</span>{" "}
             Which is lower than the average percentile 72% of all engineers who
             took this assessment
           </p>
         </div>
-        <div className="bg-gray-100 p-4 rounded-full">
-          <p className="text-xl">📈</p>
+        <div className="bg-gray-100 p-2 md:p-4 rounded-full">
+          <p className="md:text-xl">📈</p>
         </div>
       </div>
 
